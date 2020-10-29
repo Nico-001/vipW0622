@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <label >
+      用户名：<input type="text" placeholder="请输入用户名" v-model="uesrname">
+    </label>
+    <label >
+      密码：<input type="password" placeholder="请输入密码" v-model="uesrname">
+    </label>
+    <br><br>
+    性别：
+    男<input type="radio" name="sex" v-model="gender" value="meal">
+    女<input type="radio" name="sex" v-model="gender" value="female">
+    <br><br>
+
+    爱好：
+    🏀<input type="checkbox" v-model="favs" value="basketball">
+    ⚽<input type="checkbox" v-model="favs" value="football">
+    🏓<input type="checkbox" v-model="favs" value="pingpang">
+    <br><br><br>
+
+    城市：
+    <select v-model="cityId">
+      <option v-for="(city,index) in citys" :key="city.id" :value="city.id">{{city.name}}</option>
+    </select>
+    <br><br><br>
+    留言板：
+    <textarea name="" id="" cols="30" rows="10" v-model="dsac"></textarea>
+  
+  
+  
+  
+  </div>
+  <script src="./js/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el:'#root',
+      data(){
+        return{
+          citys:[{id:1,name:'北京'},
+          {id:2,name:'南京'},
+          {id:3,name:'上海'},],
+          uesrname:'',
+          password:'',
+          gender:'',
+          favs:[],
+          cityId:'',
+          dsac:''
+        }
+      }
+    })
+  </script>
+</body>
+</html>

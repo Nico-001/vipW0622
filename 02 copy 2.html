@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <p>{{aa}}</p>
+    <button v-on:click="test">点击</button>
+    <button @click="test">点击事件</button>
+  </div>
+  <script src="./js/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el:'#root',
+      data(){
+        return{
+          aa:'hello-vue'
+        }
+      },
+      methods: {
+        test(event){
+          console.log('你好')
+        }
+      },
+    })
+  </script>
+</body>
+</html>

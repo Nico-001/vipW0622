@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    姓：<input type="text" v-model="fristName">
+    名：<input type="text" v-model="lastName">
+    <!-- methpds方法 -->
+    <p style="color: palevioletred;">{{getFullName()}}</p>
+    
+    <!-- 计算属性 -->
+    <p style="color: yellowgreen;">{{fullName}}</p>
+
+    <!-- watch监视 -->
+    <p style="color: orangered;">{{fullName2}}</p>
+  </div>
+  <script src="./js/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el:'#root',
+      data(){
+        return{
+          fristName:'zhang',
+          lastName:'san',
+          fullName2:''
+        }
+      },
+      methods: {
+        getFullName(){
+          return this.fristName + this.lastName
+        }
+      },
+      //计算属性
+      computed: {
+        fullName(){
+          return this.fristName + this.lastName
+        }
+      },
+      //数据必须存在，才可以监视
+      watch: {
+        fristName:{
+          immediate:true,
+          handler(newValue,oldValue){
+            this.fullName2 = newValue +this.lastName
+          }
+        }
+      },
+    })
+  </script>
+</body>
+</html>
